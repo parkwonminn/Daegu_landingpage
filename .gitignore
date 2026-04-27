@@ -1,0 +1,16 @@
+# 운영체제
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# 에디터·도구
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 환경 변수·비밀값
+.env
+.env.*
+!.env.example
+*.pem

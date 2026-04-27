@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="대구광역시의 매력을 한눈에 — 문화·관광·비즈니스 정보와 문의를 제공하는 공식 홍보 랜딩 페이지입니다." />
+  <meta name="keywords" content="대구, 대구광역시, 관광, 동성로, 팔공산, 벚꽃, 봄, 섬유, 한의학" />
+  <title>대구광역시 — 봄이 머무는 도시</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== 스티키 헤더 ========== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a class="brand-mark" href="#hero" aria-label="대구광역시 홈으로 이동">
+        <!-- 벚꽃 아이콘 심볼 -->
+        <span class="brand-mark__symbol" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 2C11 2 13.5 5 11 8C8.5 5 11 2 11 2Z" fill="white" opacity="0.9"/>
+            <path d="M11 20C11 20 13.5 17 11 14C8.5 17 11 20 11 20Z" fill="white" opacity="0.9"/>
+            <path d="M2 11C2 11 5 13.5 8 11C5 8.5 2 11 2 11Z" fill="white" opacity="0.9"/>
+            <path d="M20 11C20 11 17 13.5 14 11C17 8.5 20 11 20 11Z" fill="white" opacity="0.9"/>
+            <circle cx="11" cy="11" r="2.5" fill="white"/>
+          </svg>
+        </span>
+        <span class="brand-mark__text">대구광역시</span>
+      </a>
+
+      <button
+        type="button"
+        class="mobile-menu-toggle"
+        id="mobileMenuToggle"
+        aria-controls="primaryNavigation"
+        aria-expanded="false"
+        aria-label="메뉴 열기"
+      >
+        <span class="mobile-menu-toggle__bar" aria-hidden="true"></span>
+        <span class="mobile-menu-toggle__bar" aria-hidden="true"></span>
+        <span class="mobile-menu-toggle__bar" aria-hidden="true"></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNavigation" aria-label="주요 메뉴">
+        <ul class="primary-nav__list">
+          <li><a class="primary-nav__link" href="#about">도시 소개</a></li>
+          <li><a class="primary-nav__link" href="#stats">도시 지표</a></li>
+          <li><a class="primary-nav__link" href="#highlights">봄의 매력</a></li>
+          <li><a class="primary-nav__link" href="#gallery">갤러리</a></li>
+          <li><a class="primary-nav__link primary-nav__link--cta" href="#cta">문의하기</a></li>
+          <li>
+            <button
+              type="button"
+              class="ai-image-nav-btn"
+              id="aiImageNavBtn"
+              aria-label="AI 지브리 이미지 변환 열기"
+              aria-haspopup="dialog"
+            >
+              <span class="ai-image-nav-btn__sparkle" aria-hidden="true">✦</span>
+              AI 이미지
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <!-- ========== 히어로: 벚꽃 낙화 + 봄 하늘 배경 ========== -->
+    <section class="hero" id="hero" aria-labelledby="heroHeading">
+      <!-- JS가 낙화 페탈 DOM 요소를 이 컨테이너 안에 주입 -->
+      <div class="petal-shower" id="petalShower" aria-hidden="true"></div>
+
+      <!-- 봄 하늘 배경 레이어 -->
+      <div class="hero__sky-layer" aria-hidden="true"></div>
+      <!-- 장식용 벚꽃 나뭇가지 SVG -->
+      <div class="hero__branch-decoration" aria-hidden="true">
+        <svg viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="branch-svg">
+          <path d="M60 380 Q80 300 120 240 Q160 180 180 120 Q200 60 210 20" stroke="#d4a0a8" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.6"/>
+          <path d="M120 240 Q155 210 190 195" stroke="#d4a0a8" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+          <path d="M160 180 Q195 155 230 145" stroke="#d4a0a8" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+          <path d="M180 120 Q145 100 120 80" stroke="#d4a0a8" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+          <!-- 꽃송이들 -->
+          <g opacity="0.75">
+            <circle cx="192" cy="194" r="7" fill="#f9c8d4"/><circle cx="199" cy="187" r="5" fill="#f7b8c8"/><circle cx="186" cy="188" r="5" fill="#fad4de"/>
+            <circle cx="231" cy="144" r="7" fill="#f9c8d4"/><circle cx="238" cy="137" r="5" fill="#f7b8c8"/><circle cx="224" cy="138" r="5" fill="#fad4de"/>
+            <circle cx="120" cy="79" r="6" fill="#f9c8d4"/><circle cx="127" cy="72" r="4.5" fill="#f7b8c8"/><circle cx="113" cy="73" r="4.5" fill="#fad4de"/>
+            <circle cx="210" cy="19" r="6" fill="#f9c8d4"/><circle cx="216" cy="13" r="4" fill="#f7b8c8"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="hero__content fade-in-section" data-animate>
+        <!-- 봄 시즌 배지 -->
+        <div class="hero__season-badge" aria-label="봄 시즌 2026">
+          <span class="hero__season-badge-dot" aria-hidden="true"></span>
+          Spring 2026 · 봄의 대구
+        </div>
+        <p class="hero__eyebrow">Republic of Korea · Daegu Metropolitan City</p>
+        <h1 id="heroHeading" class="hero__title">
+          대구,<br>
+          <span class="hero__title-accent">봄이 가장 아름다운 도시</span>
+        </h1>
+        <p class="hero__lead">
+          벚꽃 흩날리는 팔공산, 활기찬 동성로, 그리고 세계를 향해 열려 있는<br class="hero__lead-break">
+          따뜻한 도심의 이야기를 만나보세요.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#cta">봄 여행 문의하기</a>
+          <a class="button button--ghost" href="#highlights">매력 살펴보기</a>
+        </div>
+      </div>
+
+      <!-- 히어로 하단 웨이브 장식 -->
+      <div class="hero__wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,40 C360,0 720,60 1080,20 C1260,0 1380,30 1440,40 L1440,60 L0,60 Z" fill="#fdf6f0"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ========== 도시 소개 ========== -->
+    <section class="section section--about" id="about" aria-labelledby="aboutHeading">
+      <div class="section__inner">
+        <header class="section__header fade-in-section" data-animate>
+          <span class="section__season-tag" aria-hidden="true">🌸</span>
+          <h2 id="aboutHeading" class="section__title">도시 소개</h2>
+          <p class="section__subtitle">한반도 중심부에 자리한 생활·물류·교육·연구의 거점</p>
+        </header>
+        <div class="about-grid">
+          <article class="about-card fade-in-section" data-animate>
+            <div class="about-card__icon-wrap" aria-hidden="true">🚄</div>
+            <h3 class="about-card__title">접근성</h3>
+            <p class="about-card__body">
+              KTX·고속도로·항공으로 전국 주요 도시와 빠르게 연결되는 교통 네트워크를 갖추었습니다.
+            </p>
+          </article>
+          <article class="about-card fade-in-section" data-animate>
+            <div class="about-card__icon-wrap" aria-hidden="true">🏭</div>
+            <h3 class="about-card__title">산업</h3>
+            <p class="about-card__body">
+              섬유·패션, 미래 자동차, 의료·바이오 등 다양한 첨단 산업 클러스터가 성장하고 있습니다.
+            </p>
+          </article>
+          <article class="about-card fade-in-section" data-animate>
+            <div class="about-card__icon-wrap" aria-hidden="true">🎓</div>
+            <h3 class="about-card__title">교육·연구</h3>
+            <p class="about-card__body">
+              경북대학교 등 주요 대학과 국·시립 연구기관이 밀집해 있으며, 산학협력과 창업 지원으로 첨단 인재 양성과 지역 산업 혁신을 함께 이끌고 있습니다.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 도시 지표: 숫자로 보는 대구 ========== -->
+    <section class="section--stats" id="stats" aria-labelledby="statsHeading">
+      <div class="stats-band fade-in-section" data-animate>
+        <h2 id="statsHeading" class="sr-only">숫자로 보는 대구</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-item__number" data-count-target="240">0</span>
+            <span class="stat-item__unit">만 명</span>
+            <p class="stat-item__label">인구</p>
+          </div>
+          <div class="stat-item__divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-item__number" data-count-target="883">0</span>
+            <span class="stat-item__unit">km²</span>
+            <p class="stat-item__label">면적</p>
+          </div>
+          <div class="stat-item__divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-item__number" data-count-target="650">0</span>
+            <span class="stat-item__unit">만 명</span>
+            <p class="stat-item__label">연간 관광객</p>
+          </div>
+          <div class="stat-item__divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-item__number" data-count-target="12">0</span>
+            <span class="stat-item__unit">개</span>
+            <p class="stat-item__label">산업단지</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 봄의 핵심 매력 ========== -->
+    <section class="section section--highlights" id="highlights" aria-labelledby="highlightsHeading">
+      <div class="section__inner">
+        <header class="section__header fade-in-section" data-animate>
+          <span class="section__season-tag" aria-hidden="true">🌷</span>
+          <h2 id="highlightsHeading" class="section__title">봄의 매력</h2>
+          <p class="section__subtitle">4월 대구에서만 느낄 수 있는 세 가지 경험</p>
+        </header>
+        <div class="highlight-grid">
+
+          <!-- 카드 1: 동성로 벚꽃 -->
+          <article class="highlight-card fade-in-section" data-animate>
+            <div class="highlight-card__media highlight-card__media--blossom" role="img" aria-label="동성로 벚꽃 거리">
+              <!-- 순수 CSS로 벚꽃 씬 구현 -->
+              <div class="scene-blossom" aria-hidden="true">
+                <div class="scene-blossom__sky"></div>
+                <div class="scene-blossom__trees">
+                  <div class="blossom-tree blossom-tree--left"></div>
+                  <div class="blossom-tree blossom-tree--center"></div>
+                  <div class="blossom-tree blossom-tree--right"></div>
+                </div>
+                <div class="scene-blossom__ground"></div>
+              </div>
+              <span class="highlight-card__placeholder-label">동성로 · 벚꽃 거리</span>
+            </div>
+            <div class="highlight-card__text">
+              <h3 class="highlight-card__title">도심 속 꽃 터널</h3>
+              <p class="highlight-card__body">만개한 벚꽃이 뒤덮은 동성로를 따라 쇼핑·미식·야경을 동시에 즐겨보세요.</p>
+              <span class="highlight-card__tag">🌸 4월 최성수기</span>
+            </div>
+          </article>
+
+          <!-- 카드 2: 팔공산 봄 -->
+          <article class="highlight-card fade-in-section" data-animate>
+            <div class="highlight-card__media highlight-card__media--mountain" role="img" aria-label="팔공산 봄 풍경">
+              <div class="scene-mountain" aria-hidden="true">
+                <div class="scene-mountain__sky"></div>
+                <div class="scene-mountain__peaks">
+                  <div class="mountain-peak mountain-peak--back"></div>
+                  <div class="mountain-peak mountain-peak--mid"></div>
+                  <div class="mountain-peak mountain-peak--front"></div>
+                </div>
+                <div class="scene-mountain__mist"></div>
+                <div class="scene-mountain__ground"></div>
+              </div>
+              <span class="highlight-card__placeholder-label">팔공산 · 봄 등산로</span>
+            </div>
+            <div class="highlight-card__text">
+              <h3 class="highlight-card__title">초록으로 물드는 산</h3>
+              <p class="highlight-card__body">연초록 신록과 진달래가 펼쳐지는 팔공산 등산로에서 봄의 절경을 담아보세요.</p>
+              <span class="highlight-card__tag">🌿 등산·트레킹</span>
+            </div>
+          </article>
+
+          <!-- 카드 3: 봄 축제 -->
+          <article class="highlight-card fade-in-section" data-animate>
+            <div class="highlight-card__media highlight-card__media--festival" role="img" aria-label="대구 봄 축제">
+              <div class="scene-festival" aria-hidden="true">
+                <div class="scene-festival__sky"></div>
+                <div class="scene-festival__lanterns">
+                  <div class="lantern lantern--1"></div>
+                  <div class="lantern lantern--2"></div>
+                  <div class="lantern lantern--3"></div>
+                  <div class="lantern lantern--4"></div>
+                  <div class="lantern lantern--5"></div>
+                </div>
+                <div class="scene-festival__ground"></div>
+              </div>
+              <span class="highlight-card__placeholder-label">봄 축제 · 야시장</span>
+            </div>
+            <div class="highlight-card__text">
+              <h3 class="highlight-card__title">봄밤을 수놓는 빛</h3>
+              <p class="highlight-card__body">봄 축제·야시장·거리 공연이 어우러진 대구의 밤을 함께 즐겨보세요.</p>
+              <span class="highlight-card__tag">🎪 축제·공연</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 갤러리: 봄 비주얼 스트립 ========== -->
+    <section class="section section--gallery" id="gallery" aria-labelledby="galleryHeading">
+      <div class="section__inner section__inner--wide">
+        <header class="section__header fade-in-section" data-animate>
+          <span class="section__season-tag" aria-hidden="true">📷</span>
+          <h2 id="galleryHeading" class="section__title">봄 비주얼 스토리</h2>
+          <p class="section__subtitle">렌즈로 담은 4월의 대구 — 실제 사진으로 교체하여 사용할 수 있습니다.</p>
+        </header>
+        <div class="gallery-strip fade-in-section" data-animate>
+
+          <figure class="gallery-item gallery-item--tall">
+            <div class="gallery-item__frame gallery-item__frame--sakura" role="img" aria-label="벚꽃 플레이스홀더">
+              <div class="gallery-frame-inner" aria-hidden="true">
+                <!-- 겹겹이 쌓인 벚꽃 원 패턴 -->
+                <div class="blossom-cluster" aria-hidden="true"></div>
+              </div>
+              <div class="gallery-item__overlay">
+                <span class="gallery-item__overlay-text">벚꽃 · 팔공산</span>
+              </div>
+            </div>
+            <figcaption class="gallery-item__caption">팔공산 벚꽃 산책로</figcaption>
+          </figure>
+
+          <div class="gallery-column-pair">
+            <figure class="gallery-item">
+              <div class="gallery-item__frame gallery-item__frame--spring-street" role="img" aria-label="봄 거리 플레이스홀더">
+                <div class="gallery-item__overlay">
+                  <span class="gallery-item__overlay-text">봄 · 동성로</span>
+                </div>
+              </div>
+              <figcaption class="gallery-item__caption">동성로 봄 거리</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <div class="gallery-item__frame gallery-item__frame--spring-festival" role="img" aria-label="봄 축제 플레이스홀더">
+                <div class="gallery-item__overlay">
+                  <span class="gallery-item__overlay-text">봄 · 축제</span>
+                </div>
+              </div>
+              <figcaption class="gallery-item__caption">봄 축제 야경</figcaption>
+            </figure>
+          </div>
+
+          <figure class="gallery-item gallery-item--tall">
+            <div class="gallery-item__frame gallery-item__frame--spring-mountain" role="img" aria-label="봄 산 플레이스홀더">
+              <div class="gallery-item__overlay">
+                <span class="gallery-item__overlay-text">신록 · 팔공산</span>
+              </div>
+            </div>
+            <figcaption class="gallery-item__caption">팔공산 신록 전망</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA 문의 ========== -->
+    <section class="section section--cta" id="cta" aria-labelledby="ctaHeading">
+      <!-- 봄 배경 장식 -->
+      <div class="cta-spring-bg" aria-hidden="true"></div>
+      <div class="section__inner">
+        <div class="cta-panel fade-in-section" data-animate>
+          <div class="cta-panel__copy">
+            <span class="cta-panel__season-icon" aria-hidden="true">🌸</span>
+            <h2 id="ctaHeading" class="cta-panel__title">
+              대구의 봄,<br>함께 시작할 준비가 되셨나요?
+            </h2>
+            <p class="cta-panel__text">
+              관광·투자·협력 관련 문의를 남겨 주시면 담당 부서 안내 또는 봄 추천 코스를 제공해 드립니다.
+            </p>
+            <ul class="cta-panel__feature-list">
+              <li>🚄 KTX 직통 — 서울에서 1시간 40분</li>
+              <li>🌸 벚꽃 최성수기 — 4월 초·중순</li>
+              <li>🏨 숙박 패키지 안내 가능</li>
+            </ul>
+          </div>
+          <form class="inquiry-form" id="inquiryForm" novalidate>
+            <div class="inquiry-form__row">
+              <label class="inquiry-form__label" for="inquiryName">이름</label>
+              <input class="inquiry-form__input" type="text" id="inquiryName" name="name" autocomplete="name" placeholder="홍길동" />
+            </div>
+            <div class="inquiry-form__row">
+              <label class="inquiry-form__label" for="inquiryEmail">이메일</label>
+              <input class="inquiry-form__input" type="email" id="inquiryEmail" name="email" autocomplete="email" placeholder="you@example.com" />
+            </div>
+            <div class="inquiry-form__row">
+              <label class="inquiry-form__label" for="inquiryMessage">문의 내용</label>
+              <textarea class="inquiry-form__textarea" id="inquiryMessage" name="message" rows="4" placeholder="관심 분야와 희망 일정을 적어 주세요."></textarea>
+            </div>
+            <button type="submit" class="button button--primary button--block">문의 보내기 🌸</button>
+            <p class="inquiry-form__hint" id="inquiryFormHint" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== 푸터 ========== -->
+  <footer class="site-footer" id="siteFooter">
+    <div class="site-footer__inner">
+      <p class="site-footer__petal" aria-hidden="true">🌸 🌸 🌸</p>
+      <p class="site-footer__brand">대구광역시 봄 홍보 랜딩 · 데모 페이지</p>
+      <p class="site-footer__note">
+        본 페이지는 교육·포트폴리오용 예시이며, 공공기관 공식 사이트가 아닙니다.
+      </p>
+      <a class="site-footer__top" href="#hero">맨 위로 ↑</a>
+    </div>
+  </footer>
+
+  <!-- 스크린리더 전용 유틸리티 클래스 -->
+  <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
+
+  <!-- ========== AI 지브리 이미지 변환 모달 ========== -->
+  <div
+    class="ghibli-modal-overlay"
+    id="ghibliModalOverlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="ghibliModalTitle"
+    hidden
+  >
+    <div class="ghibli-modal">
+
+      <!-- 모달 헤더 -->
+      <div class="ghibli-modal__header">
+        <div class="ghibli-modal__header-info">
+          <span class="ghibli-modal__header-icon" aria-hidden="true">🎨</span>
+          <div>
+            <h2 class="ghibli-modal__title" id="ghibliModalTitle">AI 지브리 스타일 변환</h2>
+            <p class="ghibli-modal__subtitle">사진을 업로드하면 지브리 애니메이션 화풍으로 변환해 드립니다</p>
+          </div>
+        </div>
+        <button type="button" class="ghibli-modal__close-btn" id="ghibliModalCloseBtn" aria-label="모달 닫기">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- 모달 본문 -->
+      <div class="ghibli-modal__body">
+
+        <!-- 왼쪽: 업로드 + 원본 미리보기 -->
+        <div class="ghibli-panel ghibli-panel--source">
+          <p class="ghibli-panel__label">원본 이미지</p>
+
+          <!-- 드롭 존 (이미지 선택 전) -->
+          <div
+            class="ghibli-dropzone"
+            id="ghibliDropzone"
+            role="button"
+            tabindex="0"
+            aria-label="이미지를 드래그하거나 클릭해서 업로드"
+          >
+            <div class="ghibli-dropzone__inner">
+              <div class="ghibli-dropzone__icon" aria-hidden="true">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+              </div>
+              <p class="ghibli-dropzone__primary">사진을 여기에 드래그하거나</p>
+              <p class="ghibli-dropzone__secondary">클릭하여 파일을 선택하세요</p>
+              <p class="ghibli-dropzone__hint">JPG · PNG · WEBP · 최대 20MB</p>
+            </div>
+            <input
+              type="file"
+              class="ghibli-dropzone__file-input"
+              id="ghibliFileInput"
+              accept="image/jpeg,image/png,image/webp,image/gif"
+              aria-hidden="true"
+              tabindex="-1"
+            />
+          </div>
+
+          <!-- 원본 미리보기 (이미지 선택 후 표시) -->
+          <div class="ghibli-preview-wrap" id="ghibliSourcePreviewWrap" hidden>
+            <img class="ghibli-preview-img" id="ghibliSourcePreviewImg" src="" alt="원본 이미지 미리보기" />
+            <button type="button" class="ghibli-preview-retake-btn" id="ghibliRetakeBtn" aria-label="다른 이미지 선택">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.87"/>
+              </svg>
+              다시 선택
+            </button>
+          </div>
+        </div>
+
+        <!-- 가운데: 변환 화살표 -->
+        <div class="ghibli-arrow" aria-hidden="true">
+          <div class="ghibli-arrow__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </div>
+          <p class="ghibli-arrow__label">지브리 변환</p>
+        </div>
+
+        <!-- 오른쪽: 결과 미리보기 -->
+        <div class="ghibli-panel ghibli-panel--result">
+          <p class="ghibli-panel__label">지브리 스타일 결과</p>
+
+          <!-- 대기 상태 -->
+          <div class="ghibli-result-placeholder" id="ghibliResultPlaceholder">
+            <span class="ghibli-result-placeholder__icon" aria-hidden="true">🌿</span>
+            <p>이미지를 업로드하면<br>자동으로 변환됩니다</p>
+          </div>
+
+          <!-- 로딩 상태 -->
+          <div class="ghibli-loading" id="ghibliLoading" hidden>
+            <div class="ghibli-loading__spinner" aria-hidden="true">
+              <div class="ghibli-loading__petal ghibli-loading__petal--1"></div>
+              <div class="ghibli-loading__petal ghibli-loading__petal--2"></div>
+              <div class="ghibli-loading__petal ghibli-loading__petal--3"></div>
+              <div class="ghibli-loading__petal ghibli-loading__petal--4"></div>
+              <div class="ghibli-loading__petal ghibli-loading__petal--5"></div>
+              <div class="ghibli-loading__petal ghibli-loading__petal--6"></div>
+            </div>
+            <p class="ghibli-loading__text" id="ghibliLoadingText">지브리 마법을 걸고 있어요...</p>
+            <p class="ghibli-loading__sub">약 15~30초 소요됩니다</p>
+          </div>
+
+          <!-- 결과 이미지 -->
+          <div class="ghibli-preview-wrap" id="ghibliResultPreviewWrap" hidden>
+            <img class="ghibli-preview-img" id="ghibliResultPreviewImg" src="" alt="지브리 스타일 변환 결과" />
+            <a class="ghibli-download-btn" id="ghibliDownloadBtn" download="ghibli-result.png" aria-label="결과 이미지 다운로드">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              다운로드
+            </a>
+          </div>
+
+          <!-- 에러 상태 -->
+          <div class="ghibli-error" id="ghibliError" hidden>
+            <span class="ghibli-error__icon" aria-hidden="true">⚠️</span>
+            <p class="ghibli-error__text" id="ghibliErrorText">오류가 발생했습니다.</p>
+            <button type="button" class="ghibli-error__retry-btn" id="ghibliRetryBtn">다시 시도</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 모달 푸터: API 키 설정 -->
+      <div class="ghibli-modal__footer">
+        <details class="ghibli-apikey-details" id="ghibliApiKeyDetails">
+          <summary class="ghibli-apikey-details__summary">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            OpenAI API 키 설정
+          </summary>
+          <div class="ghibli-apikey-details__body">
+            <p class="ghibli-apikey-details__desc">API 키는 브라우저에만 저장되며 외부로 전송되지 않습니다.</p>
+            <div class="ghibli-apikey-details__row">
+              <input
+                type="password"
+                class="ghibli-apikey-details__input"
+                id="ghibliApiKeyInput"
+                placeholder="sk-..."
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <button type="button" class="ghibli-apikey-details__save-btn" id="ghibliApiKeySaveBtn">저장</button>
+            </div>
+            <p class="ghibli-apikey-details__hint" id="ghibliApiKeyHint"></p>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========== AI 챗봇 위젯 ========== -->
+
+  <!-- 챗봇 열기 버튼 (우측 하단 플로팅) -->
+  <button
+    type="button"
+    class="chatbot-launcher"
+    id="chatbotLauncher"
+    aria-label="AI 대구 상담사 열기"
+    aria-expanded="false"
+    aria-controls="chatbotPanel"
+  >
+    <span class="chatbot-launcher__icon" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13 2C7.477 2 3 6.253 3 11.5c0 2.3.857 4.405 2.268 6.035L4 22l5.07-1.636A10.32 10.32 0 0013 21c5.523 0 10-4.253 10-9.5S18.523 2 13 2Z" fill="white" stroke="white" stroke-width="0.5"/>
+        <circle cx="9" cy="11.5" r="1.5" fill="#c04f6e"/>
+        <circle cx="13" cy="11.5" r="1.5" fill="#c04f6e"/>
+        <circle cx="17" cy="11.5" r="1.5" fill="#c04f6e"/>
+      </svg>
+    </span>
+    <span class="chatbot-launcher__label">AI 상담</span>
+    <span class="chatbot-launcher__badge" id="chatbotUnreadBadge" aria-hidden="true" hidden>1</span>
+  </button>
+
+  <!-- 챗봇 패널 -->
+  <div
+    class="chatbot-panel"
+    id="chatbotPanel"
+    role="dialog"
+    aria-modal="false"
+    aria-labelledby="chatbotPanelTitle"
+    hidden
+  >
+    <!-- 패널 헤더 -->
+    <div class="chatbot-panel__header">
+      <div class="chatbot-panel__header-info">
+        <div class="chatbot-panel__avatar" aria-hidden="true">🌸</div>
+        <div>
+          <p class="chatbot-panel__title" id="chatbotPanelTitle">대구 AI 상담사</p>
+          <p class="chatbot-panel__subtitle">대구 관광·투자·생활 정보를 안내해 드립니다</p>
+        </div>
+      </div>
+      <div class="chatbot-panel__header-actions">
+        <button type="button" class="chatbot-panel__settings-btn" id="chatbotSettingsBtn" aria-label="API 키 설정">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </button>
+        <button type="button" class="chatbot-panel__clear-btn" id="chatbotClearBtn" aria-label="대화 초기화">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.87"/>
+          </svg>
+        </button>
+        <button type="button" class="chatbot-panel__close-btn" id="chatbotCloseBtn" aria-label="챗봇 닫기">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- API 키 설정 패널 (초기에 숨김) -->
+    <div class="chatbot-apikey-setup" id="chatbotApiKeySetup" hidden>
+      <p class="chatbot-apikey-setup__desc">
+        OpenAI API 키를 입력하면 AI 상담이 시작됩니다.<br>
+        키는 브라우저에만 저장되며 외부로 전송되지 않습니다.
+      </p>
+      <div class="chatbot-apikey-setup__row">
+        <input
+          type="password"
+          class="chatbot-apikey-setup__input"
+          id="chatbotApiKeyInput"
+          placeholder="sk-..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button type="button" class="chatbot-apikey-setup__save-btn" id="chatbotApiKeySaveBtn">저장</button>
+      </div>
+      <p class="chatbot-apikey-setup__hint" id="chatbotApiKeyHint"></p>
+    </div>
+
+    <!-- 메시지 목록 영역 -->
+    <div class="chatbot-messages" id="chatbotMessages" aria-live="polite" aria-label="대화 내용">
+      <!-- 웰컴 메시지 (초기 표시) -->
+      <div class="chatbot-message chatbot-message--assistant" id="chatbotWelcomeMsg">
+        <div class="chatbot-message__bubble">
+          안녕하세요! 저는 <strong>대구 AI 상담사</strong>입니다 🌸<br>
+          대구의 관광 명소, 봄 축제, 맛집, 교통 정보 등 무엇이든 물어보세요!
+        </div>
+        <span class="chatbot-message__time">지금</span>
+      </div>
+    </div>
+
+    <!-- 빠른 질문 버튼 -->
+    <div class="chatbot-quick-questions" id="chatbotQuickQuestions">
+      <button type="button" class="chatbot-quick-btn" data-question="대구에서 꼭 가봐야 할 봄 관광지를 알려주세요.">🌸 봄 관광지 추천</button>
+      <button type="button" class="chatbot-quick-btn" data-question="대구 팔공산 등산 코스와 봄 볼거리를 알려주세요.">🏔 팔공산 등산 코스</button>
+      <button type="button" class="chatbot-quick-btn" data-question="대구 동성로 맛집과 쇼핑 정보를 알려주세요.">🍽 동성로 맛집·쇼핑</button>
+      <button type="button" class="chatbot-quick-btn" data-question="서울에서 대구까지 교통편과 소요 시간을 알려주세요.">🚄 교통·접근 방법</button>
+    </div>
+
+    <!-- 입력 영역 -->
+    <div class="chatbot-input-area">
+      <div class="chatbot-input-row">
+        <textarea
+          class="chatbot-input"
+          id="chatbotInput"
+          placeholder="대구에 대해 무엇이든 물어보세요..."
+          rows="1"
+          aria-label="메시지 입력"
+        ></textarea>
+        <button type="button" class="chatbot-send-btn" id="chatbotSendBtn" aria-label="메시지 보내기" disabled>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+      <p class="chatbot-input-area__notice">AI 답변은 참고용이며 공식 정보와 다를 수 있습니다.</p>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
