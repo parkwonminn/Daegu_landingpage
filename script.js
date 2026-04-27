@@ -13,6 +13,96 @@
 
   const SCROLL_THRESHOLD_PX = 8;
   const INTERSECTION_ROOT_MARGIN = "0px 0px -10% 0px";
+  const COLOR_THEME_STORAGE_KEY = "daeguLandingColorTheme";
+
+  /**
+   * localStorage에 저장된 라이트/다크 선택을 반환한다. 없으면 null.
+   * @returns {"light" | "dark" | null}
+   */
+  function getPersistedColorThemeChoice() {
+    const storedValue = localStorage.getItem(COLOR_THEME_STORAGE_KEY);
+    if (storedValue === "dark" || storedValue === "light") {
+      return storedValue;
+    }
+    return null;
+  }
+
+  /**
+   * 문서 루트에 data-theme을 설정해 전역 색 테마를 적용한다.
+   * @param {{ themeId: "light" | "dark" }} params
+   */
+  function applyDocumentColorTheme({ themeId }) {
+    document.documentElement.setAttribute("data-theme", themeId);
+  }
+
+  /**
+   * 테마 토글 버튼의 aria-pressed·aria-label을 현재 테마에 맞춘다.
+   * @param {{ toggleButton: HTMLButtonElement, themeId: "light" | "dark" }} params
+   */
+  function syncColorThemeToggleAccessibility({ toggleButton, themeId }) {
+    const isDarkTheme = themeId === "dark";
+    toggleButton.setAttribute("aria-pressed", String(isDarkTheme));
+    toggleButton.setAttribute(
+      "aria-label",
+      isDarkTheme ? "라이트 모드로 전환" : "다크 모드로 전환"
+    );
+  }
+
+  /**
+   * head 인라인 스크립트가 설정한 data-theme과 토글 UI를 맞춘다.
+   * @param {{ toggleButton: HTMLButtonElement }} params
+   */
+  function synchronizeColorThemeToggleWithDocument({ toggleButton }) {
+    const themeId = document.documentElement.getAttribute("data-theme");
+    if (themeId === "light" || themeId === "dark") {
+      syncColorThemeToggleAccessibility({ toggleButton, themeId });
+    }
+  }
+
+  /**
+   * 테마 토글 클릭 시 라이트/다크를 바꾸고 선택을 저장한다.
+   * @param {{ toggleButton: HTMLButtonElement }} params
+   */
+  function registerColorThemeToggleClickHandler({ toggleButton }) {
+    toggleButton.addEventListener("click", function handleColorThemeToggleClick() {
+      const currentThemeId =
+        document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      const nextThemeId = currentThemeId === "dark" ? "light" : "dark";
+      applyDocumentColorTheme({ themeId: nextThemeId });
+      localStorage.setItem(COLOR_THEME_STORAGE_KEY, nextThemeId);
+      syncColorThemeToggleAccessibility({ toggleButton, themeId: nextThemeId });
+    });
+  }
+
+  /**
+   * 사용자가 저장한 테마가 없을 때만 시스템 prefers-color-scheme 변경을 반영한다.
+   * @param {{ toggleButton: HTMLButtonElement }} params
+   */
+  function registerSystemColorSchemeListener({ toggleButton }) {
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", function handleSystemColorSchemeChange(colorSchemeQueryEvent) {
+        if (getPersistedColorThemeChoice() !== null) {
+          return;
+        }
+        const nextThemeId = colorSchemeQueryEvent.matches ? "dark" : "light";
+        applyDocumentColorTheme({ themeId: nextThemeId });
+        syncColorThemeToggleAccessibility({ toggleButton, themeId: nextThemeId });
+      });
+  }
+
+  /**
+   * 헤더 색 테마 토글 초기화 (접근성·저장·시스템 연동).
+   * @param {{ toggleButton: HTMLButtonElement | null }} params
+   */
+  function initializeColorThemeToggle({ toggleButton }) {
+    if (!toggleButton) {
+      return;
+    }
+    synchronizeColorThemeToggleWithDocument({ toggleButton });
+    registerColorThemeToggleClickHandler({ toggleButton });
+    registerSystemColorSchemeListener({ toggleButton });
+  }
 
   /* ── 벚꽃 낙화 파티클 설정 ── */
   const PETAL_COUNT_DESKTOP = 28;
@@ -280,6 +370,9 @@
    * 모든 페이지 인터랙션을 초기화하는 진입점 함수.
    */
   function initializeLandingPageInteractions() {
+    const colorThemeToggleButton = document.getElementById("colorThemeToggle");
+    initializeColorThemeToggle({ toggleButton: colorThemeToggleButton });
+
     const headerElement          = document.getElementById("siteHeader");
     const mobileMenuToggleButton = document.getElementById("mobileMenuToggle");
     const primaryNavPanel        = document.getElementById("primaryNavigation");

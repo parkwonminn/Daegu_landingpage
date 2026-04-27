@@ -60,6 +60,327 @@
   --shadow-blossom: 0 12px 40px rgba(192, 79, 110, 0.18);
   --transition-fast: 180ms ease;
   --transition-med:  300ms ease;
+
+  /* 히어로 하단 웨이브 SVG (라이트 기본) */
+  --hero-wave-fill: #fdf6f0;
+}
+
+/* ── 다크 모드: 테마 변수 ── */
+html[data-theme="dark"] {
+  --color-bg:             #1a1614;
+  --color-bg-elevated:    #252019;
+  --color-bg-section-alt: #221c1a;
+  --color-text:           #f5ebe6;
+  --color-text-muted:     #b9a99a;
+  --color-border:         #3d3430;
+
+  --color-accent:         #e87a9a;
+  --color-accent-hover:   #f59ab4;
+  --color-accent-soft:    rgba(232, 122, 154, 0.18);
+  --color-accent-glow:    rgba(232, 122, 154, 0.38);
+
+  --color-spring-petal:   #c4788c;
+  --color-spring-blossom: #a85d72;
+  --color-spring-green:   #6ab88a;
+  --color-spring-sky:     #6a8caf;
+  --color-spring-yellow:  #c9a86e;
+  --color-spring-peach:   #b08070;
+  --color-spring-mist:    #8a7099;
+
+  --shadow-sm:      0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md:      0 6px 24px rgba(0, 0, 0, 0.45);
+  --shadow-blossom: 0 12px 40px rgba(232, 122, 154, 0.28);
+
+  --hero-wave-fill: #1a1614;
+}
+
+/* ── 다크 모드: 하드코딩 색·그라디언트 보정 ── */
+html[data-theme="dark"] .site-header {
+  background: rgba(26, 22, 20, 0.92);
+}
+
+html[data-theme="dark"] .site-header.is-scrolled {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .hero__sky-layer {
+  background:
+    radial-gradient(ellipse 60% 50% at 75% 15%, rgba(192, 79, 110, 0.22), transparent 55%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(106, 140, 175, 0.18), transparent 50%),
+    radial-gradient(ellipse 50% 60% at 50% 50%, rgba(201, 168, 110, 0.06), transparent 70%),
+    linear-gradient(180deg, #2a2220 0%, #221c1a 42%, #1a1614 100%);
+}
+
+html[data-theme="dark"] .cherry-petal {
+  background: radial-gradient(ellipse at 40% 30%, #5c3848, #4a3038, #3d2830);
+}
+
+html[data-theme="dark"] .cherry-petal--alt {
+  background: radial-gradient(ellipse at 60% 40%, #523440, #423038, #382428);
+}
+
+html[data-theme="dark"] .hero__season-badge {
+  background: linear-gradient(135deg, rgba(192, 79, 110, 0.35), rgba(168, 93, 114, 0.22));
+  border-color: rgba(232, 122, 154, 0.35);
+}
+
+html[data-theme="dark"] .section--highlights {
+  background:
+    radial-gradient(ellipse 70% 50% at 10% 50%, rgba(192, 79, 110, 0.14), transparent 55%),
+    radial-gradient(ellipse 60% 60% at 90% 30%, rgba(106, 184, 138, 0.1), transparent 50%),
+    var(--color-bg);
+}
+
+html[data-theme="dark"] .section--gallery {
+  background:
+    radial-gradient(ellipse 50% 80% at 50% 0%, rgba(192, 79, 110, 0.12), transparent 50%),
+    var(--color-bg);
+}
+
+html[data-theme="dark"] .about-card:hover {
+  border-color: rgba(232, 122, 154, 0.45);
+}
+
+html[data-theme="dark"] .button--ghost {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .highlight-card__tag {
+  border-color: rgba(232, 122, 154, 0.35);
+}
+
+html[data-theme="dark"] .cta-spring-bg {
+  background:
+    radial-gradient(ellipse 60% 80% at 0% 50%, rgba(192, 79, 110, 0.18), transparent 55%),
+    radial-gradient(ellipse 60% 80% at 100% 50%, rgba(106, 140, 175, 0.12), transparent 55%),
+    radial-gradient(ellipse 40% 60% at 50% 0%, rgba(201, 168, 110, 0.08), transparent 50%);
+}
+
+html[data-theme="dark"] .cta-panel {
+  background: rgba(37, 32, 25, 0.92);
+  border-color: rgba(232, 122, 154, 0.22);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    var(--shadow-blossom);
+}
+
+html[data-theme="dark"] .inquiry-form__input,
+html[data-theme="dark"] .inquiry-form__textarea {
+  background: rgba(26, 22, 20, 0.65);
+}
+
+html[data-theme="dark"] .inquiry-form__input:focus-visible,
+html[data-theme="dark"] .inquiry-form__textarea:focus-visible {
+  background: rgba(37, 32, 25, 0.95);
+}
+
+html[data-theme="dark"] .site-footer {
+  background: linear-gradient(180deg, var(--color-bg) 0%, #14110f 100%);
+}
+
+html[data-theme="dark"] .ghibli-modal-overlay {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+html[data-theme="dark"] .ghibli-modal {
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55), 0 4px 20px rgba(108, 92, 231, 0.2);
+}
+
+html[data-theme="dark"] .ghibli-dropzone {
+  background: #2a2520;
+  border-color: var(--color-border);
+}
+
+html[data-theme="dark"] .ghibli-dropzone:hover {
+  background: #322c26;
+}
+
+html[data-theme="dark"] .ghibli-apikey-details {
+  background: rgba(37, 32, 25, 0.45);
+  border-radius: var(--radius-sm);
+}
+
+html[data-theme="dark"] .ghibli-apikey-details__input {
+  background: rgba(26, 22, 20, 0.8);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+html[data-theme="dark"] .chatbot-panel {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(232, 122, 154, 0.2);
+}
+
+html[data-theme="dark"] .chatbot-messages {
+  background: var(--color-bg-section-alt);
+}
+
+html[data-theme="dark"] .chatbot-message--assistant .chatbot-message__bubble {
+  background: rgba(37, 32, 25, 0.95);
+  border-color: var(--color-border);
+}
+
+html[data-theme="dark"] .chatbot-message--user .chatbot-message__bubble {
+  background: linear-gradient(135deg, #8b4a5c 0%, var(--color-accent) 100%);
+}
+
+html[data-theme="dark"] .chatbot-input {
+  background: rgba(26, 22, 20, 0.85);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+html[data-theme="dark"] .chatbot-apikey-setup {
+  background: rgba(37, 32, 25, 0.95);
+}
+
+html[data-theme="dark"] .chatbot-apikey-setup__input {
+  background: rgba(26, 22, 20, 0.9);
+  color: var(--color-text);
+}
+
+html[data-theme="dark"] .chatbot-quick-btn {
+  background: rgba(37, 32, 25, 0.9);
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+html[data-theme="dark"] .primary-nav {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* 하이라이트 카드 CSS 씬 — 다크 톤 */
+html[data-theme="dark"] .scene-blossom__sky {
+  background: linear-gradient(180deg, #3a2830 0%, #4a3038 45%, #3d2a32 100%);
+}
+
+html[data-theme="dark"] .scene-blossom__ground {
+  background: linear-gradient(180deg, #3d2a32 0%, #352830 60%, #2c2228 100%);
+}
+
+html[data-theme="dark"] .blossom-tree::after {
+  background: radial-gradient(circle at 40% 35%, #5c4050, #7a5060, #4a3842);
+  box-shadow: 0 0 16px rgba(192, 79, 110, 0.25);
+}
+
+html[data-theme="dark"] .scene-mountain__sky {
+  background: linear-gradient(180deg, #2a3848 0%, #354a58 40%, #3a5058 80%, #324850 100%);
+}
+
+html[data-theme="dark"] .scene-mountain__mist {
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+}
+
+html[data-theme="dark"] .scene-mountain__ground {
+  background: linear-gradient(180deg, #3a6048 0%, #2d5038 100%);
+}
+
+html[data-theme="dark"] .mountain-peak--back { border-bottom-color: #4a7058; }
+html[data-theme="dark"] .mountain-peak--mid { border-bottom-color: #3d8850; }
+html[data-theme="dark"] .mountain-peak--front { border-bottom-color: #347848; }
+
+html[data-theme="dark"] .gallery-item__frame--sakura {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.08), transparent 40%),
+    radial-gradient(circle at 70% 60%, rgba(192, 79, 110, 0.35), transparent 40%),
+    linear-gradient(160deg, #3a2832 0%, #5c3848 40%, #4a2840 80%, #382030 100%);
+}
+
+html[data-theme="dark"] .gallery-item__frame--spring-street {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.06), transparent 40%),
+    linear-gradient(160deg, #3a3228 0%, #504028 30%, #604820 60%, #483818 100%);
+}
+
+html[data-theme="dark"] .gallery-item__frame--spring-festival {
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255, 100, 180, 0.15), transparent 40%),
+    linear-gradient(160deg, #1a0a28 0%, #402060 35%, #702060 65%, #904060 100%);
+}
+
+html[data-theme="dark"] .gallery-item__frame--spring-mountain {
+  background:
+    radial-gradient(ellipse at 50% 15%, rgba(255, 255, 255, 0.1), transparent 35%),
+    radial-gradient(ellipse at 30% 60%, rgba(80, 160, 100, 0.15), transparent 40%),
+    linear-gradient(180deg, #2a4050 0%, #385848 35%, #2d6040 65%, #204030 100%);
+}
+
+html[data-theme="dark"] .blossom-cluster::before,
+html[data-theme="dark"] .blossom-cluster::after {
+  background:
+    radial-gradient(circle at 50% 20%,  rgba(255, 200, 210, 0.35) 8px, transparent 9px),
+    radial-gradient(circle at 80% 50%,  rgba(255, 200, 210, 0.35) 8px, transparent 9px),
+    radial-gradient(circle at 50% 80%,  rgba(255, 200, 210, 0.35) 8px, transparent 9px),
+    radial-gradient(circle at 20% 50%,  rgba(255, 200, 210, 0.35) 8px, transparent 9px),
+    radial-gradient(circle at 50% 50%,  rgba(200, 100, 120, 0.5) 14px, transparent 15px);
+}
+
+html[data-theme="dark"] .brand-mark__text {
+  background: linear-gradient(135deg, var(--color-accent), #f0b8c8);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+html[data-theme="dark"] .ghibli-error {
+  border-color: rgba(255, 120, 120, 0.35);
+  background: rgba(50, 28, 32, 0.75);
+}
+
+/* 헤더 우측: 테마 토글 + 햄버거 + 내비 */
+.header-trailing {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex: 1;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.theme-toggle__icon {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.theme-toggle__icon--sun {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-toggle__icon--moon {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-toggle__icon--sun {
+  display: block;
 }
 
 /* ─────────────────────────────────────────────

@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <script>
+    (function () {
+      var storageKey = "daeguLandingColorTheme";
+      var stored = localStorage.getItem(storageKey);
+      var themeId =
+        stored === "dark" || stored === "light"
+          ? stored
+          : window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+      document.documentElement.setAttribute("data-theme", themeId);
+    })();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="대구광역시의 매력을 한눈에 — 문화·관광·비즈니스 정보와 문의를 제공하는 공식 홍보 랜딩 페이지입니다." />
@@ -29,6 +42,23 @@
         </span>
         <span class="brand-mark__text">대구광역시</span>
       </a>
+
+      <div class="header-trailing">
+      <button
+        type="button"
+        class="theme-toggle"
+        id="colorThemeToggle"
+        aria-pressed="false"
+        aria-label="다크 모드로 전환"
+      >
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M21 14.5A8.5 8.5 0 019.5 3a8.5 8.5 0 1011.5 11.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
 
       <button
         type="button"
@@ -64,6 +94,7 @@
           </li>
         </ul>
       </nav>
+      </div>
     </div>
   </header>
 
@@ -116,7 +147,7 @@
       <!-- 히어로 하단 웨이브 장식 -->
       <div class="hero__wave" aria-hidden="true">
         <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,40 C360,0 720,60 1080,20 C1260,0 1380,30 1440,40 L1440,60 L0,60 Z" fill="#fdf6f0"/>
+          <path d="M0,40 C360,0 720,60 1080,20 C1260,0 1380,30 1440,40 L1440,60 L0,60 Z" fill="var(--hero-wave-fill)"/>
         </svg>
       </div>
     </section>
