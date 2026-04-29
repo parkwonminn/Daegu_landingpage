@@ -14,6 +14,8 @@
   const SCROLL_THRESHOLD_PX = 8;
   const INTERSECTION_ROOT_MARGIN = "0px 0px -10% 0px";
   const COLOR_THEME_STORAGE_KEY = "daeguLandingColorTheme";
+  /** 헤더 가로 내비 ↔ 햄버거 전환 기준(px). style.css 의 모바일 내비 미디어쿼리와 동일해야 한다. */
+  const MOBILE_NAV_BREAKPOINT_PX = 960;
 
   /**
    * localStorage에 저장된 라이트/다크 선택을 반환한다. 없으면 null.
@@ -172,7 +174,7 @@
       return;
     }
 
-    const isMobileViewport = window.innerWidth < 720;
+    const isMobileViewport = window.innerWidth <= MOBILE_NAV_BREAKPOINT_PX;
     const targetPetalCount = isMobileViewport ? PETAL_COUNT_MOBILE : PETAL_COUNT_DESKTOP;
 
     /* DocumentFragment으로 한 번에 DOM에 삽입 (리플로우 최소화) */
@@ -320,7 +322,9 @@
     });
 
     window.addEventListener("resize", function closeOnDesktopResize() {
-      if (window.innerWidth > 720) { closeMenu(); }
+      if (window.innerWidth > MOBILE_NAV_BREAKPOINT_PX) {
+        closeMenu();
+      }
     }, { passive: true });
   }
 

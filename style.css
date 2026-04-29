@@ -388,7 +388,11 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
    ───────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* 수직 스크롤바가 생길 때 가로 폭이 덜 흔들리도록 */
+  scrollbar-gutter: stable;
+}
 
 body {
   margin: 0;
@@ -398,6 +402,8 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
+  /* 장식·100vw 등으로 생기는 가로 스크롤 방지 (세로 스크롤·sticky는 유지) */
+  overflow-x: clip;
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -488,6 +494,7 @@ a   { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: space-between;
   gap: var(--space-md);
+  min-width: 0;
 }
 
 .brand-mark {
@@ -1281,7 +1288,7 @@ a   { color: inherit; text-decoration: none; }
 
 .hero__lead-break { display: none; }
 
-@media (min-width: 720px) { .hero__lead-break { display: block; } }
+@media (min-width: 961px) { .hero__lead-break { display: block; } }
 
 .hero__actions {
   display: flex;
@@ -1289,7 +1296,7 @@ a   { color: inherit; text-decoration: none; }
   gap: var(--space-sm);
 }
 
-/* 히어로 하단 웨이브 */
+/* 히어로 하단 웨이브 (장식용 — 포인터는 통과시켜 아래 콘텐츠 버튼이 눌리게 함) */
 .hero__wave {
   position: absolute;
   bottom: -1px;
@@ -1297,6 +1304,7 @@ a   { color: inherit; text-decoration: none; }
   right: 0;
   height: 60px;
   z-index: 4;
+  pointer-events: none;
 }
 
 .hero__wave svg {
@@ -2150,9 +2158,9 @@ a   { color: inherit; text-decoration: none; }
 }
 
 /* ─────────────────────────────────────────────
-   반응형: 모바일 ≤720px
+   반응형: 태블릿·모바일 ≤960px (가로 내비 한계 + 터치 친화 레이아웃)
    ───────────────────────────────────────────── */
-@media (max-width: 720px) {
+@media (max-width: 960px) {
   .mobile-menu-toggle { display: inline-flex; }
 
   .primary-nav {
@@ -2316,7 +2324,7 @@ a   { color: inherit; text-decoration: none; }
   bottom: 5.5rem;
   right: 1.75rem;
   z-index: 999;
-  width: min(380px, calc(100vw - 2rem));
+  width: min(380px, calc(100% - 2rem));
   height: min(580px, calc(100dvh - 7rem));
   display: flex;
   flex-direction: column;
@@ -2679,7 +2687,9 @@ a   { color: inherit; text-decoration: none; }
   .chatbot-panel {
     bottom: 0;
     right: 0;
-    width: 100vw;
+    left: 0;
+    width: 100%;
+    max-width: none;
     height: 100dvh;
     border-radius: 0;
   }
